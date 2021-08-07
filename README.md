@@ -57,7 +57,7 @@ Cons:
 * Slow reads (need to aggregate every request)
 * Costly for a large scale (many events)
 -------------------------------------------------------------------------
-Aggregate data (e.g. per minute) in real time
+Aggregate data (e.g. per minute) in real time  
 videoId | Timestamp | Count
 
 Pros:
@@ -84,29 +84,48 @@ How much money will it all cost?
 
 SQL database
 ====================================
-![alt text](images/sql_scale.PNG)
+![SQL database](images/sql_scale.PNG)
 
 
+NoSQL database
+====================================
+Coordination node takes initial request and makes:
+* Quorum read
+* Quorum write  
+![Cassandra scaling](images/nosql-cassandra.PNG)
 
 
+How we store?
+====================================
+![How we store?](images/how-we-store.PNG)
 
 
+Processing service
+====================================
+* How to scale?
+* How to achieve high throughput?
+* How not to lose data when processing node crashes?
+* What to do when database is unavailable or slow?
+====================================
+* Scalable = Partitioning
+* Reliable = Replication and checkpointing
+* Fast = In-memory
 
 
+Data aggregation basics:
+====================================
+![Data aggregation basics](images/data-aggregation-basics.PNG)
+====================================
+![Data aggregation basics continued](images/data-aggregation-basics-continued.PNG)
 
 
+Processing service (detailed design):
+====================================
+![Processing service](images/processing-service.PNG)
 
-
-
-
-
-
-
-
-System design
 
 Top K heavy hitters
-Examples:
+====================================
 1. Number of likes on youtube video on the last 1 minute/hour/day
 2. Youtube trends, popular products, volatile stocks
 3. DDOS attack prevention 
