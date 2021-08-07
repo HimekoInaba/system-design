@@ -84,7 +84,7 @@ How much money will it all cost?
 
 SQL database
 ====================================
-
+![alt text](images/sql_scale.png)
 
 
 
