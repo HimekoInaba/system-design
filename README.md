@@ -2,7 +2,7 @@ Counting things
 ====================================
 1. Youtube views  
 2. Monitoring System  
-3. Analyse data in real time  
+3. Analyse data in real time: fraud, recommendation, trending  
  
 Requirements clarification
 ====================================
@@ -123,6 +123,54 @@ Processing service (detailed design):
 ====================================
 ![Processing service](images/processing-service.PNG)
 
+Ingestion path components
+====================================
+![Ingestion path components](images/ingestion-path-components.PNG)
+
+Data retrieval
+====================================
+![Data retrieval](images/data-retrieval.PNG)
+
+Data flow simulation
+====================================
+![Data flow simulation](images/data-flow-simulation.PNG)
+
+
+Technology stack
+====================================
+![Technology stack](images/tech-stack.PNG)
+
+Bottlenecks identification
+====================================
+1. Load testing: test system 2-3x higher load than average prod load.
+2. Stress testing: beyound prod load, to find which component fails first: CPU, memory, disk i/o, network
+3. Soak testing: testing system in prod load to identify leaks.
+Ex: Apache JMeter  
+
+System health
+====================================
+Metrics with dashboard, alerts.  
+4 golden signals of monitoring:  
+1. latency
+2. traffic
+3. error
+4. saturation
+
+How to assure accurate results?
+====================================
+Audit system.  
+1. Weak audit test: continuesly running e2e test, checking if service returning excepting count.
+2. Strong audit test: calculates events with different path, save in hadoop, make map-reduce and compare results.
+
+How to handle hugely popular videos? (Heavy hitters)
+====================================
+1. Add for example time to videoId to generate different hashes and spread load 
+2. Partitioning
+3. Add more nodes in consistent hashing ring
+
+Summary
+====================================
+![Summary](images/summary.PNG)
 
 Top K heavy hitters
 ====================================
