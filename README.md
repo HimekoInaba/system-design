@@ -6,20 +6,20 @@ Counting things
  
 Requirements clarification
 ====================================
-1. Users/ Customers:
-    Who will use the system?
-    How the system will be used?
-2. Scale (read and write)
-    How many read queries per second?
-    How much data is queried per request?
-    How many video views are processed per second?
-    Can there be spikes in traffic?
-3. Performance
-    What is expected write-to-read data delay?
-    What is expected p99 latency for read queries?
-4. Cost (Budget)
-    Should the design minimize the cost of development?
-    Should the design minimize the cost of maintenance?
+1. Users/ Customers:  
+    Who will use the system?  
+    How the system will be used?  
+2. Scale (read and write)  
+    How many read queries per second?  
+    How much data is queried per request?  
+    How many video views are processed per second?  
+    Can there be spikes in traffic?  
+3. Performance  
+    What is expected write-to-read data delay?  
+    What is expected p99 latency for read queries?  
+4. Cost (Budget)  
+    Should the design minimize the cost of development?  
+    Should the design minimize the cost of maintenance?  
 
 Functional Requirements - API
 ====================================  
@@ -52,8 +52,9 @@ videoId | Timestamp | ...
 Pros:
 * Fast writes
 * Can slice and dice data however we need
-* Can recalculate numbers if needed
-Cons:
+* Can recalculate numbers if needed  
+
+Cons:  
 * Slow reads (need to aggregate every request)
 * Costly for a large scale (many events)
 -------------------------------------------------------------------------
@@ -63,7 +64,8 @@ videoId | Timestamp | Count
 Pros:
 * Fast reads
 * Data is ready for decision making
-Cons:
+
+Cons: 
 * Can query only the way data was aggregated
 * Requires data aggregation pipeline
 * Hard or event impossible to fix errors
@@ -71,16 +73,16 @@ Cons:
 
 Where we store?
 ====================================
-How to scale writes?
-How to scale reads?
-How to make both writes and read fast?
-How not to lose data in case of hardware faults and network partitions?
-How to achieve strong consistency? What are the tradeoffs?
-How to recover data in case of an outage?
-How to ensure data security?
-How to make it extensible for data model changes in the future?
-Where to run (cloud vs on-premises data centers)?
-How much money will it all cost?
+* How to scale writes?  
+* How to scale reads?  
+* How to make both writes and read fast?  
+* How not to lose data in case of hardware faults and network partitions?  
+* How to achieve strong consistency? What are the tradeoffs?  
+* How to recover data in case of an outage?  
+* How to ensure data security?  
+* How to make it extensible for data model changes in the future?  
+* Where to run (cloud vs on-premises data centers)?  
+* How much money will it all cost?  
 
 SQL database
 ====================================
